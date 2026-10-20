@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 4b - Question 2: JSON Fetch</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+        .error { color: red; font-weight: bold; }
+        .book-item { margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+    <h1>Book Library Information</h1>
+    <div id="output">Loading books data...</div>
+
+    <script>
+        async function loadBooks() {
+            const outputDiv = document.getElementById("output");
+            try {
+                const response = await fetch("books.json");
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const data = await response.json();            
+                outputDiv.textContent = "";
+                const p1 = document.createElement("p");
+                p1.textContent = `First Book Title: ${data.books[0].title}`;
+                outputDiv.appendChild(p1);
+
+                const p2 = document.createElement("p");
+                p2.textContent = `Second Book Author: ${data.books[1].author}`;
+                outputDiv.appendChild(p2);
+
+                const h3 = document.createElement("h3");
+                h3.textContent = "Book Genres Grouped by Title:";
+                outputDiv.appendChild(h3);
+
+                const ul = document.createElement("ul");
+                data.books.forEach(book => {
+                    const li = document.createElement("li");
+                    li.className = "book-item";
+                    li.textContent = `${book.title} — ${book.genres.join(", ")}`;
+                    ul.appendChild(li);
+                });
+                outputDiv.appendChild(ul);
+
+            } catch (error) {
+                outputDiv.textContent = `Failed to load book data: ${error.message}`;
+                outputDiv.classList.add("error");
+            }
+        }
+
+        loadBooks();
+    </script>
+</body>
+</html>
