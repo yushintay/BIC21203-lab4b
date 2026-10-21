@@ -14,10 +14,10 @@ This repository contains the completed work for Lab #4b: Client-Side Scripting (
 ## 📁 Repository Structure
 
 .
-├── books.json          # Question 1: Valid JSON dataset containing book records
-├── books.html          # Question 2: HTML page fetching and displaying JSON data via async/await
-├── jquery-dom.html     # Question 3: HTML page demonstrating DOM updates and events via jQuery 4.0.0[cite: 1]
-└── README.md           # Project documentation and setup instructions[cite: 1]
+<p>├── books.json          # Question 1: Valid JSON dataset containing book records</p>
+<p>├── books.html          # Question 2: HTML page fetching and displaying JSON data via async/await</p>
+<p>├── jquery-dom.html     # Question 3: HTML page demonstrating DOM updates and events via jQuery 4.0.0</p>
+<p>└── README.md           # Project documentation and setup instructions</p>
 
 ## Test Results & Screenshots
 Question 1
